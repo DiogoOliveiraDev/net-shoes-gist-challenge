@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_base_host">https://api.github.com/</string>
+    <string name="gists_api">https://api.github.com/gists</string>
+</resources>

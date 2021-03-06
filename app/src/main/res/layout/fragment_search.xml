@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tlSearch"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:hint="Digite a informação aqui"
+            android:background="@color/git_hub_background"/>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/btSearch"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="@id/tlSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tlSearch"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:src="@drawable/search_icon"
+        android:tint="@color/git_hub_background"
+        android:scaleType="fitCenter"
+        android:padding="10dp"
+        android:background="@drawable/background_circle"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGistItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/layout_gist_element"
+        app:layout_constraintTop_toBottomOf="@id/tlSearch"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

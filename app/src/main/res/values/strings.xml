@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Main Net Shoes Challenge</string>
+    <string name="you_can_filter_or_search">Aqui você pode filtrar na lista\n atual todos os Gists do usuário %1$s, ou então buscar todos os Gists de %1$s na internet</string>
+    <string name="action_bar_new_gists">Coco</string>
+    <string name="filters_in_favorites_under_construction">Filtro nos favoritos em construção</string>
+    <string name="no_favorites_found">Nenhum favorito encontrado</string>
+    <string name="failed_to_get_content">Falha ao tentar buscar o conteúdo do Gist</string>
+    <string name="status_bar_gists_menu_name">Gists</string>
+    <string name="status_bar_favorites_menu_name">Favoritos</string>
+    <string name="status_bar_favorites_content_name">Conteúdo do Gist</string>
+</resources>

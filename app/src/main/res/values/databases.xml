@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_database_name">net-shoes-challenge-db</string>
+    <string name="app_favorites_database_name">net-shoes-challenge-favorites-db</string>
+</resources>
