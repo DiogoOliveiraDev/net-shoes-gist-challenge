@@ -42,7 +42,7 @@
         android:textStyle="bold"
         android:textSize="@dimen/name_text_size"
         android:textColor="@color/white"
-        android:text="DiogoOliveiraDev"/>
+        android:text="@string/user_fake_name"/>
 
     <TextView
         android:id="@+id/tvDescription"
@@ -65,7 +65,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="@dimen/small_margin"
-        android:text="Buscar na internet"/>
+        android:text="@string/search_on_internet"/>
 
 
     <Button
@@ -76,6 +76,6 @@
         app:layout_constraintStart_toEndOf="@id/btFetchFromInternet"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="@dimen/small_margin"
-        android:text="Filtrar da lista atual"/>
+        android:text="@string/filter_in_current_list"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

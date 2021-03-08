@@ -21,4 +21,6 @@
     <string name="file_name_fake_name">Nome do arquivo</string>
     <string name="touch_here_to_close">Toque aqui para fechar</string>
     <string name="tutorial_menu_title">Tutorial</string>
+    <string name="search_on_internet">Buscar na internet</string>
+    <string name="filter_in_current_list">Filtrar da lista atual"</string>
 </resources>
