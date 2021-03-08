@@ -68,12 +68,7 @@ class TutorialActivity : BaseActivity(){
         })
 
         tvClose.setOnClickListener{
-            if (hasPrefs(ALREADY_VISUALIZED_TUTORIAL_KEY)) {
-                finish()
-            } else {
-                putPrefsBool(ALREADY_VISUALIZED_TUTORIAL_KEY, true)
-                startActivity(Intent(this, HomeActivity::class.java))
-            }
+            saveVisualizedTutorial()
         }
 
         supportActionBar?.title = resources.getString(R.string.tutorial_menu_title)
@@ -93,5 +88,18 @@ class TutorialActivity : BaseActivity(){
         flBack.setVisibility(state.backButtonVisibility)
         flNext.setVisibility(state.nextButtonVisibility)
         vpContent.setCurrentItem(state.pagerPosition, true)
+    }
+
+    override fun onBackPressed() {
+        saveVisualizedTutorial()
+    }
+
+    fun saveVisualizedTutorial() {
+        if (hasPrefs(ALREADY_VISUALIZED_TUTORIAL_KEY)) {
+            finish()
+        } else {
+            putPrefsBool(ALREADY_VISUALIZED_TUTORIAL_KEY, true)
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
     }
 }

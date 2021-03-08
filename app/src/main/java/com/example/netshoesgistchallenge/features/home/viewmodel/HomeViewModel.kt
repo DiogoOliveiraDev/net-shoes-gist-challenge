@@ -65,11 +65,8 @@ class HomeViewModel(
             return
 
         viewModelScope.launch(dispatcher) {
-            when (gistSearchMode) {
-                GistSearchMode.NEW_GISTS -> getNewGists()
-                GistSearchMode.FAVORITES -> getFavorites()
-                GistSearchMode.BY_USER -> getGistsFromUser()
-            }
+            if (gistSearchMode == GistSearchMode.NEW_GISTS) getNewGists()
+            else getGistsFromUser()
         }
     }
 
@@ -89,11 +86,13 @@ class HomeViewModel(
         }
     }
 
-    private fun getFavorites() {
-        try {
-            postAllFavorites()
-        } catch (exception: java.lang.Exception) {
-            postError()
+    fun getFavorites() {
+        viewModelScope.launch(dispatcher) {
+            try {
+                postAllFavorites()
+            } catch (exception: java.lang.Exception) {
+                postError()
+            }
         }
     }
 
