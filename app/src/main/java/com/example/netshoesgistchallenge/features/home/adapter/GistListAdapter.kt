@@ -34,7 +34,7 @@ class GistListAdapter(
         private val tvUser = bind<TextView>(R.id.tvUser)
         private val tvType = bind<TextView>(R.id.tvType)
         private val clContent = bind<ConstraintLayout>(R.id.clContent)
-        private val tvLanguage = bind<TextView>(R.id.tvFileName)
+        private val tvLanguage = bind<TextView>(R.id.tvLanguage)
         private val vFavorite = bind<View>(R.id.vFavorite)
         private val ivFavoriteStatus = bind<ImageView>(R.id.ivFavoriteStatus)
         private val tvFileName = bind<TextView>(R.id.tvFileName)
