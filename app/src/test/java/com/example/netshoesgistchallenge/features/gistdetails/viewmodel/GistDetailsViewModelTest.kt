@@ -9,6 +9,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Rule
@@ -25,12 +26,13 @@ class GistDetailsViewModelTest {
     private val viewModel = GistDetailsViewModel(
         fileContentRepository,
         gistsRepository,
-        gistDetailsStateCreator
+        gistDetailsStateCreator,
+        Dispatchers.Unconfined
     )
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `should get file content by id2`() =
+    fun `should get file content by id`() =
         runBlockingTest {
             // Given
             val fileContent = "Hi I'am file content!"
