@@ -28,7 +28,7 @@ class FavoritesPageFragment(
 
         super.initializeRecyclerView(adapter)
 
-        viewModel.getGists(GistSearchMode.FAVORITES)
+        viewModel.getFavorites()
     }
 
     @SuppressLint("ShowToast")

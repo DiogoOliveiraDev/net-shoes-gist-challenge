@@ -52,7 +52,7 @@ class HomeViewModelTest {
     fun `should get favorites Gists`() =
         runBlockingTest {
             // When
-            viewModel.getGists(GistSearchMode.FAVORITES, user)
+            viewModel.getFavorites()
 
             // Then
             coVerify (exactly = 1) { favoritesRepository.getAllFavorites() }
@@ -66,7 +66,7 @@ class HomeViewModelTest {
             every { favoritesRepository.getAllFavorites() } throws Exception()
 
             // When
-            viewModel.getGists(GistSearchMode.FAVORITES)
+            viewModel.getFavorites()
 
             // Then
             coVerify (exactly = 1) { favoritesRepository.getAllFavorites() }
