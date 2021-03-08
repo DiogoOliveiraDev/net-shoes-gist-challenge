@@ -17,7 +17,7 @@ abstract class BaseDialog(
 
     companion object{
         const val DEFAULT_DIALOG_WIDTH = 90
-        const val DEFAULT_DIALOG_HEIGHT = 60
+        const val DEFAULT_DIALOG_HEIGHT = 80
         const val FULL_SCREEN_PERCENT = 100
         const val NO_VALUE = 0
     }
