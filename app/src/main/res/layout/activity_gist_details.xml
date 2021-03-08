@@ -43,7 +43,7 @@
         android:layout_marginStart="@dimen/ultra_small_margin"
         android:gravity="start"
         android:textColor="@color/white"
-        android:text="Diogo Olveira"
+        android:text="@string/user_fake_name"
         android:textSize="@dimen/description_text_size"
         android:textStyle="bold"/>
 
@@ -56,7 +56,7 @@
         android:layout_marginStart="@dimen/ultra_small_margin"
         android:gravity="start"
         android:textColor="@color/white"
-        android:text="Phyton"
+        android:text="@string/language_fake_name"
         android:textSize="@dimen/description_text_size"
         android:textStyle="bold"/>
 

@@ -31,6 +31,7 @@ class HomeViewModelTest {
         stateCreator,
         Dispatchers.Unconfined
     )
+    private val user = "user"
 
     @ExperimentalCoroutinesApi
     @Test
@@ -50,9 +51,6 @@ class HomeViewModelTest {
     @Test
     fun `should get favorites Gists`() =
         runBlockingTest {
-            // Given
-            val user = "user"
-
             // When
             viewModel.getGists(GistSearchMode.FAVORITES, user)
 
@@ -78,7 +76,6 @@ class HomeViewModelTest {
     @Test
     fun `should get user Gists`() = runBlockingTest {
         // Given
-        val user = "user"
         coEvery { gistsRepository.getAllDataByUser(any(), any()) } returns listOf(gistMap)
 
         // When
@@ -92,7 +89,6 @@ class HomeViewModelTest {
     @Test
     fun `should reset last search parameters and change search mode`() = runBlockingTest {
         // Given
-        val user = "user"
         coEvery { gistsRepository.getNewGists(any(), any()) } returns listOf(gistMap)
         coEvery { gistsRepository.getAllDataByUser(any(), any()) } returns listOf(gistMap)
 
@@ -106,9 +102,8 @@ class HomeViewModelTest {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `should get more results with without know if there more results`() = runBlockingTest {
+    fun `should get more results without know if there more results`() = runBlockingTest {
         // Given
-        val user = "user"
         coEvery { gistsRepository.getNewGists(any(), any()) } returns listOf(gistMap)
 
         // When
@@ -123,7 +118,6 @@ class HomeViewModelTest {
     @Test
     fun `should stop to try get more results after error for new Gists`() = runBlockingTest {
         // Given
-        val user = "user"
         coEvery { gistsRepository.getNewGists(any(), any()) } returns listOf(gistMap)
         // When
         viewModel.getGists(GistSearchMode.NEW_GISTS, user)
@@ -139,7 +133,6 @@ class HomeViewModelTest {
     @Test
     fun `should stop to try get more results after error for user Gists`() = runBlockingTest {
         // Given
-        val user = "user"
         coEvery { gistsRepository.getAllDataByUser(any(), any()) } returns listOf(gistMap)
         // When
         viewModel.getGists(GistSearchMode.BY_USER, user)
@@ -153,9 +146,24 @@ class HomeViewModelTest {
 
     @ExperimentalCoroutinesApi
     @Test
+    fun `should stop to try get more results after response 200 with empty list`() = runBlockingTest {
+        // Given
+        coEvery { gistsRepository.getAllDataByUser(any(), any()) } returns listOf()
+        // When
+        viewModel.getGists(GistSearchMode.BY_USER, user)
+        coEvery { gistsRepository.getAllDataByUser(any(), any()) } returns listOf()
+        viewModel.getMoreGits()
+        viewModel.getMoreGits()
+
+        // Then
+        coVerify (exactly = 3) { gistsRepository.getAllDataByUser(user, any()) }
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
     fun `should add favorites and update current item in list with favorites`() = runBlockingTest {
         // Given
-        val listMap = listOf(gistMap)
+        val listMap = listOf(gistMap.copy(gistId = "nonFavoriteItem"), gistMap)
         val gistId = gistMap.gistId
         coEvery { gistsRepository.getNewGists(any(), any()) } returns listMap
 

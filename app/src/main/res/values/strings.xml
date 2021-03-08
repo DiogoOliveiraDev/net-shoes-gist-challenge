@@ -8,4 +8,17 @@
     <string name="status_bar_gists_menu_name">Gists</string>
     <string name="status_bar_favorites_menu_name">Favoritos</string>
     <string name="status_bar_favorites_content_name">Conteúdo do Gist</string>
+    <string name="tutorial_step1_description">Bem vindo ao app de Gists do Github! Aqui você pode ver os Gists recentes do Github.</string>
+    <string name="tutorial_step2_description">Toque no coração caso deseje adicionar/remover um item da sua lista de favoritos</string>
+    <string name="tutorial_step3_description">Toque na foto do usuário caso queira fazer um filtro ou buscar Gists dele na internet.</string>
+    <string name="tutorial_step4_description">Na tela de Gists arraste o dedo para baixo caso queria limpar os filtros ou atualizar a lista.</string>
+    <string name="user_fake_name">Usuário</string>
+    <string name="dialog_exit_title">Deseja sair?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="language_fake_name">Linguagem</string>
+    <string name="content_type_fake_name">Tipo de conteúdo</string>
+    <string name="file_name_fake_name">Nome do arquivo</string>
+    <string name="touch_here_to_close">Toque aqui para fechar</string>
+    <string name="tutorial_menu_title">Tutorial</string>
 </resources>

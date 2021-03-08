@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.DialogFragment
+import com.example.netshoesgistchallenge.features.home.view.dialog.GistByUserFilterDialog
 
 abstract class BaseDialog(
     private val widthPercent: Int = DEFAULT_DIALOG_WIDTH,
@@ -36,6 +37,9 @@ abstract class BaseDialog(
         super.onActivityCreated(savedInstanceState)
         setWidthPercent(widthPercent, heightPercent)
     }
+
+    fun getStringBundle(key: String) =
+            arguments?.getString(key).toString()
 
     @LayoutRes
     abstract fun getLayout(): Int

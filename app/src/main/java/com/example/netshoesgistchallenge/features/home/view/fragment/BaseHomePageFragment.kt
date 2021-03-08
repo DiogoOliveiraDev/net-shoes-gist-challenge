@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.netshoesgistchallenge.R
-import com.example.netshoesgistchallenge.common.bind
+import com.example.netshoesgistchallenge.common.extensions.bind
 import com.example.netshoesgistchallenge.features.gistdetails.view.GistDetailsActivity
 import com.example.netshoesgistchallenge.features.home.adapter.listeners.AvatarClickListener
 import com.example.netshoesgistchallenge.features.home.adapter.GistItem

@@ -1,8 +1,8 @@
 package com.example.netshoesgistchallenge.service.repositories.gists.map.mapper
 
 import com.example.netshoesgistchallenge.common.Constants.EMPTY
-import com.example.netshoesgistchallenge.common.IToEntity
-import com.example.netshoesgistchallenge.common.IToMap
+import com.example.netshoesgistchallenge.common.service.IToEntity
+import com.example.netshoesgistchallenge.common.service.IToMap
 import com.example.netshoesgistchallenge.service.repositories.filecontent.entity.FileContentEntity
 import com.example.netshoesgistchallenge.service.repositories.gists.entity.FilesEmbedded
 import com.example.netshoesgistchallenge.service.repositories.gists.entity.GenericFileEmbedded

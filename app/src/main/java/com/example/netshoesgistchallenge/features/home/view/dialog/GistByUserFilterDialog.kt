@@ -4,16 +4,13 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.netshoesgistchallenge.R
-import com.example.netshoesgistchallenge.common.bind
-import com.example.netshoesgistchallenge.common.loadImage
+import com.example.netshoesgistchallenge.common.extensions.bind
+import com.example.netshoesgistchallenge.common.extensions.loadImage
 import com.example.netshoesgistchallenge.features.home.adapter.listeners.FetchFromInternetUserGistsListener
 import com.example.netshoesgistchallenge.features.home.adapter.listeners.FilterUserCurrentGistsListener
 import com.example.netshoesgistchallenge.global.BaseDialog
 
-class GistByUserFilterDialog private constructor(
-    val user: String,
-    val avatarUrl: String
-) : BaseDialog() {
+class GistByUserFilterDialog : BaseDialog() {
 
     lateinit var filterListener: FilterUserCurrentGistsListener
     lateinit var fetchFromInternetListener: FetchFromInternetUserGistsListener
@@ -24,9 +21,15 @@ class GistByUserFilterDialog private constructor(
     private val btFetchFromInternet by lazy { bind<Button>(R.id.btFetchFromInternet) }
     private val btFilterFromList by lazy { bind<Button>(R.id.btFilterFromList) }
 
+    private lateinit var user: String
+    private lateinit var avatarUrl: String
+
     override fun getLayout() = R.layout.dialog_gist_by_user_filter_layout
 
     override fun initialize() {
+        user = getStringBundle(LOGIN_KEY)
+        avatarUrl = getStringBundle(AVATAR_URL_KEY)
+
         context?.let {
             ivAvatar.loadImage(it, avatarUrl)
         }
@@ -49,7 +52,7 @@ class GistByUserFilterDialog private constructor(
     }
 
     companion object {
-        fun create(user: String, avatarUrl: String) =
-            GistByUserFilterDialog(user, avatarUrl)
+        const val LOGIN_KEY = "LOGIN_KEY"
+        const val AVATAR_URL_KEY = "AVATAR_URL_KEY"
     }
 }

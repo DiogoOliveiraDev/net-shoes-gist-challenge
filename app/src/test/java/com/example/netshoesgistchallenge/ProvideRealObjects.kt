@@ -1,5 +1,6 @@
 package com.example.netshoesgistchallenge
 
+import com.example.netshoesgistchallenge.features.tutorial.state.TutorialState
 import com.example.netshoesgistchallenge.service.repositories.gists.entity.FilesEmbedded
 import com.example.netshoesgistchallenge.service.repositories.gists.entity.GenericFileEmbedded
 import com.example.netshoesgistchallenge.service.repositories.gists.entity.GistEntity
@@ -48,3 +49,5 @@ val gistMap = GistMap(
         ),
         isFavorite = false
 )
+
+val tutorialState = TutorialState()

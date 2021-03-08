@@ -5,6 +5,7 @@ val allModules = mutableListOf(
         apiModule,
         databaseModule,
         gitsByUserModule,
+        tutorialModule,
         homeModule,
         detailsModule
 )

@@ -6,10 +6,10 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.example.netshoesgistchallenge.R
-import com.example.netshoesgistchallenge.common.bind
-import com.example.netshoesgistchallenge.common.invertVisibility
-import com.example.netshoesgistchallenge.common.loadImage
-import com.example.netshoesgistchallenge.common.setVisibility
+import com.example.netshoesgistchallenge.common.extensions.bind
+import com.example.netshoesgistchallenge.common.extensions.invertVisibility
+import com.example.netshoesgistchallenge.common.extensions.loadImage
+import com.example.netshoesgistchallenge.common.extensions.setVisibility
 import com.example.netshoesgistchallenge.features.home.adapter.listeners.AvatarClickListener
 import com.example.netshoesgistchallenge.features.home.adapter.listeners.GistItemClickListener
 import com.example.netshoesgistchallenge.features.home.adapter.listeners.ManageFavoriteListener

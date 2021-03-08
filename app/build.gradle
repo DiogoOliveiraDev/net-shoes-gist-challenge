@@ -71,6 +71,4 @@ dependencies {
     annotationProcessor annotationProcessors.values()
     implementation implementations.values()
     kapt kapts.values()
-
-    implementation 'thereisnospon.codeview:codeview:0.3.1'
 }

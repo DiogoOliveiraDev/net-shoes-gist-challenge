@@ -1,6 +1,5 @@
 package com.example.netshoesgistchallenge.global
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,13 +37,6 @@ abstract class BaseRecyclerViewAdapter<I, VH : BaseRecyclerViewAdapter.BaseViewH
             this.items.add(it)
         }
 
-        Log.i("LOG:: ", "items ${items.size}" )
-        notifyDataSetChanged()
-        Log.i("LOG:: ", "items after notify ${items.size}" )
-    }
-
-    fun addItems(items: List<I>) {
-        this.items.addAll(items)
         notifyDataSetChanged()
     }
 
@@ -53,7 +45,7 @@ abstract class BaseRecyclerViewAdapter<I, VH : BaseRecyclerViewAdapter.BaseViewH
         notifyDataSetChanged()
     }
 
-    fun initialize() {
+    private fun initialize() {
         notifyDataSetChanged()
     }
 

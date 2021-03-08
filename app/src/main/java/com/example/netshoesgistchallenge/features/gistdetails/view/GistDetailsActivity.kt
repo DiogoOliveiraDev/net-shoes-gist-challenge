@@ -4,9 +4,9 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.netshoesgistchallenge.R
-import com.example.netshoesgistchallenge.common.bind
-import com.example.netshoesgistchallenge.common.loadImage
-import com.example.netshoesgistchallenge.common.setVisibility
+import com.example.netshoesgistchallenge.common.extensions.bind
+import com.example.netshoesgistchallenge.common.extensions.loadImage
+import com.example.netshoesgistchallenge.common.extensions.setVisibility
 import com.example.netshoesgistchallenge.features.gistdetails.state.GistDetailsState
 import com.example.netshoesgistchallenge.features.gistdetails.viewmodel.GistDetailsViewModel
 import com.example.netshoesgistchallenge.global.BaseActivity

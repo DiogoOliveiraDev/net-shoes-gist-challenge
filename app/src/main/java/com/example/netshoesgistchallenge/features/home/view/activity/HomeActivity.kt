@@ -1,18 +1,23 @@
 package com.example.netshoesgistchallenge.features.home.view.activity
 
 import android.annotation.SuppressLint
-import android.view.MotionEvent
-import android.view.View
+import android.content.Intent
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ProgressBar
 import androidx.viewpager2.widget.ViewPager2
 import com.example.netshoesgistchallenge.R
-import com.example.netshoesgistchallenge.common.bind
-import com.example.netshoesgistchallenge.common.setVisibility
-import com.example.netshoesgistchallenge.features.home.adapter.HomePageAdapter
+import com.example.netshoesgistchallenge.common.extensions.bind
+import com.example.netshoesgistchallenge.common.extensions.setVisibility
+import com.example.netshoesgistchallenge.common.extensions.showQuitDialog
+import com.example.netshoesgistchallenge.features.home.view.fragment.FavoritesPageFragment
+import com.example.netshoesgistchallenge.features.home.view.fragment.GistListPageFragment
 import com.example.netshoesgistchallenge.features.home.viewmodel.HomeViewModel
+import com.example.netshoesgistchallenge.features.tutorial.view.activity.TutorialActivity
 import com.example.netshoesgistchallenge.global.BaseActivity
 import com.example.netshoesgistchallenge.global.TabSelectedImpl
 import com.example.netshoesgistchallenge.global.TabSelectedListener
+import com.example.netshoesgistchallenge.global.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,19 +43,30 @@ class HomeActivity : BaseActivity(){
         setTextStatusBar(GISTS_PAGE)
     }
 
-    @SuppressLint("ClickableViewAccessibility")
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.home_menu, menu)
+        return true
+    }
+
+    @SuppressLint("ClickableViewAccessibility", "ShowToast")
     private fun initializeViewPagerAndTabLayout() {
         viewModel.homeStateStream.observe(this){
             pbInfinityList.setVisibility(it.isLoading)
         }
 
-        vpContent.adapter = HomePageAdapter.createItems(this)
+        vpContent.adapter = ViewPagerAdapter.createPages(
+            this,
+            listOf(
+                GistListPageFragment(this),
+                FavoritesPageFragment(this)
+            )
+        )
         TabLayoutMediator(tlContent, vpContent) { tab, position ->
             vpContent.setCurrentItem(tab.position, false)
-            tab.setIcon(position.toTablayoutIcon())
+            tab.setIcon(position.toTabLayoutIcon())
         }.attach()
 
-        tlContent.addOnTabSelectedListener(TabSelectedImpl(object: TabSelectedListener{
+        tlContent.addOnTabSelectedListener(TabSelectedImpl(object : TabSelectedListener {
             override fun onTabSelected(position: Int) {
                 setTextStatusBar(position)
             }
@@ -62,7 +78,7 @@ class HomeActivity : BaseActivity(){
         supportActionBar?.setHomeButtonEnabled(true)
     }
 
-    private fun Int.toTablayoutIcon() =
+    private fun Int.toTabLayoutIcon() =
         when(this) {
             GISTS_PAGE -> R.drawable.ic_githubprofile
             FAVORITES_PAGE -> R.drawable.ic_favorite
@@ -75,4 +91,13 @@ class HomeActivity : BaseActivity(){
             FAVORITES_PAGE -> R.string.status_bar_favorites_menu_name
             else ->  R.string.status_bar_gists_menu_name
         }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        startActivity(Intent(this, TutorialActivity::class.java))
+        return true
+    }
+
+    override fun onBackPressed() {
+        showQuitDialog()
+    }
 }

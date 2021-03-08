@@ -18,13 +18,13 @@ abstract class BaseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initialize();
+        initialize()
     }
 
     @LayoutRes
     abstract fun getLayout(): Int
 
-    abstract fun initialize()
+    open fun initialize() {}
 
     open fun observeStreamData(){}
 }

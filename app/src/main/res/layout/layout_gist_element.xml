@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@color/git_hub_background">
+    android:background="@drawable/background_theme">
 
     <View
         android:layout_width="0dp"
@@ -84,9 +84,9 @@
         app:layout_constraintTop_toBottomOf="@id/tvFileName"
         android:layout_marginStart="@dimen/ultra_small_margin"
         android:layout_marginTop="@dimen/ultra_small_margin"
-        android:gravity="end"
+        android:gravity="start"
         android:textColor="@color/white"
-        android:text="Diogo Olveira"
+        android:text="@string/user_fake_name"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"/>
 
@@ -99,7 +99,7 @@
         android:layout_marginStart="@dimen/ultra_small_margin"
         android:gravity="start"
         android:textColor="@color/white"
-        android:text="Phyton"
+        android:text="@string/language_fake_name"
         android:textSize="@dimen/small_text_size"
         android:textStyle="bold"/>
 
@@ -135,7 +135,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/small_text_size"
         android:gravity="end"
-        android:text="Application/json"/>
+        android:text="@string/content_type_fake_name"/>
 
     <TextView
         android:id="@+id/tvFileName"
@@ -148,7 +148,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/title_text_size"
         android:gravity="start"
-        android:text="JavaScript"/>
+        android:text="@string/file_name_fake_name"/>
 
     <View
         android:layout_width="match_parent"
@@ -156,6 +156,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/white"
         android:alpha="0.2"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

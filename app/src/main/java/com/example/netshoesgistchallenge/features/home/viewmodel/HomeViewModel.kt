@@ -105,8 +105,7 @@ class HomeViewModel(
                 page
             ).apply {
                 if (isEmpty()) {
-                    thereIsNoMoreResults = currentGistsList.isNotEmpty()
-                    postError(thereIsNoMoreResults)
+                    postErrorCheckNoMoreResults()
                 } else {
                     currentGistsList.addAll(
                         this
@@ -116,8 +115,7 @@ class HomeViewModel(
                 }
             }
         } catch (exception: Exception) {
-            thereIsNoMoreResults = currentGistsList.isNotEmpty()
-            postError(thereIsNoMoreResults)
+            postErrorCheckNoMoreResults()
         }
     }
 
@@ -187,6 +185,11 @@ class HomeViewModel(
         homeStateStream.postValue(
             stateCreator.manageLoading(isRefreshing, showShimmer)
         )
+
+    private fun postErrorCheckNoMoreResults() {
+        thereIsNoMoreResults = currentGistsList.isNotEmpty()
+        postError(thereIsNoMoreResults)
+    }
 
     private fun postError(isErrorFetchMoreItems: Boolean = false) {
         homeStateStream.postValue(

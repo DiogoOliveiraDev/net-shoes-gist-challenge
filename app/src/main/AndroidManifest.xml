@@ -11,13 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CustomTheme">
-        <activity android:name=".features.home.view.activity.HomeActivity">
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:name=".features.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".features.tutorial.view.activity.TutorialActivity"/>
+        <activity android:name=".features.home.view.activity.HomeActivity"/>
         <activity android:name=".features.gistdetails.view.GistDetailsActivity"/>
     </application>
 

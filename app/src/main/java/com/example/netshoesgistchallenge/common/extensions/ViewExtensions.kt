@@ -1,4 +1,4 @@
-package com.example.netshoesgistchallenge.common
+package com.example.netshoesgistchallenge.common.extensions
 
 import android.app.Activity
 import android.content.Context

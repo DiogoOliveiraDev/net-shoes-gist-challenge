@@ -2,16 +2,19 @@ package com.example.netshoesgistchallenge.features.home.view.fragment
 
 import android.util.Log
 import android.widget.FrameLayout
+import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentActivity
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.netshoesgistchallenge.R
-import com.example.netshoesgistchallenge.common.bind
-import com.example.netshoesgistchallenge.common.setVisibility
+import com.example.netshoesgistchallenge.common.extensions.bind
+import com.example.netshoesgistchallenge.common.extensions.setVisibility
+import com.example.netshoesgistchallenge.features.home.adapter.GistListAdapter
 import com.example.netshoesgistchallenge.features.home.adapter.listeners.FetchFromInternetUserGistsListener
 import com.example.netshoesgistchallenge.features.home.adapter.listeners.FilterUserCurrentGistsListener
-import com.example.netshoesgistchallenge.features.home.adapter.GistListAdapter
 import com.example.netshoesgistchallenge.features.home.state.HomeState
 import com.example.netshoesgistchallenge.features.home.view.dialog.GistByUserFilterDialog
+import com.example.netshoesgistchallenge.features.home.view.dialog.GistByUserFilterDialog.Companion.AVATAR_URL_KEY
+import com.example.netshoesgistchallenge.features.home.view.dialog.GistByUserFilterDialog.Companion.LOGIN_KEY
 import com.example.netshoesgistchallenge.features.home.viewmodel.GistSearchMode
 import com.facebook.shimmer.ShimmerFrameLayout
 
@@ -32,7 +35,7 @@ class GistListPageFragment(
         observeStreamData()
         super.initializeRecyclerView(adapter)
 
-        shimmer.startLayoutAnimation()
+        manageShimmer(true)
 
         srLoading.setOnRefreshListener {
             adapter.reset()
@@ -42,7 +45,6 @@ class GistListPageFragment(
 
     override fun observeStreamData() {
         viewModel.gistItemListStream.observe(fragmentActivity) {
-            Log.i("LOG:: ", "List from service ${it.size}")
             adapter.setItems(it)
         }
 
@@ -72,9 +74,13 @@ class GistListPageFragment(
     }
 
     override fun onClickAvatar(login: String, avatarUrl: String) {
-        GistByUserFilterDialog.create(login, avatarUrl).apply {
+        GistByUserFilterDialog().apply {
             filterListener = this@GistListPageFragment
             fetchFromInternetListener = this@GistListPageFragment
+            arguments = bundleOf(
+                    LOGIN_KEY to login,
+                    AVATAR_URL_KEY to avatarUrl
+            )
         }.show(parentFragmentManager, "")
     }
 
