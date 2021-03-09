@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CustomTheme">
         <activity
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:name=".features.splash.SplashActivity">
             <intent-filter>
@@ -20,9 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".features.tutorial.view.activity.TutorialActivity"/>
-        <activity android:name=".features.home.view.activity.HomeActivity"/>
-        <activity android:name=".features.gistdetails.view.GistDetailsActivity"/>
+        <activity android:screenOrientation="portrait" android:name=".features.tutorial.view.activity.TutorialActivity"/>
+        <activity android:screenOrientation="portrait" android:name=".features.home.view.activity.HomeActivity"/>
+        <activity android:screenOrientation="portrait" android:name=".features.gistdetails.view.GistDetailsActivity"/>
     </application>
 
 </manifest>
